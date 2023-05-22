@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import { MenuItems } from "./MenuItems";
 import "./Navbar.css";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const [clicked, setClicked] = useState(false);
@@ -23,10 +24,10 @@ const Navbar = () => {
           {MenuItems.map((NavItem, index) => {
             return (
               <li key={index}>
-                <a className={NavItem.className} href="/">
-                  <i class={NavItem.icon}></i>
+                <Link className={NavItem.className} to={NavItem.url}>
+                  <i className={NavItem.icon}></i>
                   {NavItem.title}
-                </a>
+                </Link>
               </li>
             );
           })}
